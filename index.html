@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=no"
@@ -13,20 +12,22 @@
   </head>
   <body>
     <div id="menu">
-      <h1>Polivisual</h1>
-      <select name="polyhedron" id="polyhedron-input">
-        <option value="">Escolha um poliedro</option>
-        <option value="quadrado">Quadrado</option>
-      </select>
-      <select name="property" id="property-input">
-        <option value="">Escolha uma propriedade</option>
-        <option value="edge">Aresta</option>
-        <option value="vertex">Vértice</option>
-        <option value="face">Face</option>
-      </select>
-      <button id="btn-active-ar">Começar</button>
+      <h1 class="titulo">Polivisual</h1>
+      <div id="container-inputs">
+        <select id="poliedro-input">
+          <option value="">Escolha um poliedro</option>
+          <option value="quadrado">Quadrado</option>
+        </select>
+        <select id="propriedade-input">
+          <option value="">Escolha uma propriedade</option>
+          <option value="aresta">Aresta</option>
+          <option value="vertice">Vértice</option>
+          <option value="face">Face</option>
+        </select>
+        <button id="botao-comecar">Começar</button>
+      </div>
     </div>
-    <div id="app"></div>
+    <div id="container-ra"></div>
     <script type="module" src="/main.js"></script>
   </body>
 </html>

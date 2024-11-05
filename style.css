@@ -1,19 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Sora:wght@100..800&display=swap");
+
+:root {
+  --primary-color: #1a1a19;
+  --secundary-color: #f5f5f7;
+  --primary-font: "Sora", sans-serif;
+  --secundary-font: "Merriweather", serif;
+}
+
 html,
 body,
-#app,
 #menu {
   width: 100%;
   height: 100%;
+  font-family: var(--primary-font);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-font-smoothing: antialiased !important;
+  text-rendering: optimizelegibility !important;
+  font-size: 20px;
 }
 
-#app {
+#menu {
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.titulo {
+  font-size: 4rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--secundary-color);
+  margin-bottom: 30px;
+}
+
+#container-inputs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#container-inputs > select {
+  font-size: 0.7rem;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-family: var(--secundary-font);
+}
+
+#container-inputs > select:nth-of-type(1) {
+  margin-bottom: 10px;
+}
+
+#container-inputs > select:nth-of-type(2) {
+  margin-bottom: 50px;
+}
+
+#container-inputs > button {
+  background-color: var(--secundary-color);
+  color: var(--primary-color);
+  padding: 15px 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: var(--secundary-font);
+  font-size: 1rem;
+}
+
+#container-ra {
+  width: 100%;
+  height: 100%;
   position: relative;
 }
 
-.btn-voltar {
+#botao-voltar {
   position: absolute;
   top: 5%;
   left: 35%;
   background-color: red;
   cursor: pointer;
+  z-index: 1;
+}
+
+#container-info {
+  color: red;
+  position: absolute;
+  left: 50%;
+  top: 10%;
 }

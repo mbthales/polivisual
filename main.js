@@ -1,49 +1,60 @@
 import "./reset.css";
 import "./style.css";
 
-const oi = () => {
-  console.log("hello");
-  const app = document.querySelector("#app");
-  document.getElementById("menu").style.display = "block";
-  app.style.display = "none";
+const containerRa = document.getElementById("container-ra");
+const botaoComecarRa = document.getElementById("botao-comecar");
+const menu = document.getElementById("menu");
+
+// const botaoVoltar = () => {
+//   // menu.style.display = "block";
+//   // containerRa.style.display = "none";
+// };
+
+const propriedade = (propriedade) => {
+  if (propriedade === "aresta") {
+    return "<p>O que é uma aresta?</p>";
+  } else if (propriedade === "vertice") {
+    return "<p>O que é um vértice?</p>";
+  } else if (propriedade === "face") {
+    return "<p>O que é uma face?</p>";
+  }
 };
 
-window.oi = oi;
+const main = () => {
+  const propriedadeInput = document.getElementById("propriedade-input");
+  const poliedroInput = document.getElementById("poliedro-input");
 
-const test = () => {
-  const btn = document.getElementById("btn-active-ar");
-  const app = document.querySelector("#app");
-  const polyhedronProperty = document.getElementById("property-input");
+  if (!propriedadeInput.value || !poliedroInput.value) {
+    alert("Você deve escolher uma propriedade e um poliedro para começar!");
+    return;
+  }
 
-  const teste = {
-    edge: "./assets/models/cubo-arestas.glb",
-    vertex: "./assets/models/cubo-vertices.glb",
-    face: "./assets/models/cubo-faces.glb",
-  };
+  menu.style.display = "none";
+  console.log(propriedadeInput.value);
 
-  btn.addEventListener("click", () => {
-    document.getElementById("menu").style.display = "none";
-
-    app.innerHTML = `
-    <button id="btn-voltar" class="btn-voltar">Voltar</button>
+  containerRa.innerHTML = `
+    <button id="botao-voltar">Voltar</button>
+    <div id="container-info">
+      <p>${propriedade(propriedadeInput.value)}</p>
+    </div>
     <a-scene embedded arjs="trackingMethod: best; debugUIEnabled: false" vr-mode-ui="enabled: false;">
       <a-marker preset="hiro">
         <a-entity
-          scale="0.05 0.05 0.05"
+          position="1 0 0"
+          scale="0.10 0.10 0.10"
           gltf-model="./assets/models/cubo-arestas.glb"
         ></a-entity>
       </a-marker>
       <a-entity camera></a-entity>
     </a-scene>
-    `;
+  `;
 
-    const test = document.getElementById("btn-voltar");
-    console.log(test);
-    test.addEventListener("click", (e) => {
-      e.preventDefault();
-      console.log("hello!");
-    });
-  });
+  // document
+  //   .getElementById("botao-voltar")
+  //   .addEventListener("click", botaoVoltar);
 };
 
-test();
+botaoComecarRa.addEventListener("click", () => {
+  console.log("hello");
+  main();
+});
