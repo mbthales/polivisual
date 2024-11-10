@@ -5,22 +5,32 @@ const containerRa = document.getElementById("container-ra");
 const botaoComecarRa = document.getElementById("botao-comecar");
 const menu = document.getElementById("menu");
 
-// const botaoVoltar = () => {
-//   // menu.style.display = "block";
-//   // containerRa.style.display = "none";
-// };
+const botaoVoltar = () => {
+  menu.style.display = "flex";
+  containerRa.style.display = "none";
+};
 
-const propriedade = (propriedade) => {
+const propriedadeTexto = (propriedade) => {
   if (propriedade === "aresta") {
-    return "<p>O que é uma aresta?</p>";
+    return "<p>Aresta é a borda de uma face de um poliedro. São as partes em azul no objeto abaixo.</p>";
   } else if (propriedade === "vertice") {
-    return "<p>O que é um vértice?</p>";
+    return "<p>Vértice é o ponto de ligação das arestas de um poliedro. São as partes em azul no objeto abaixo.</p>";
   } else if (propriedade === "face") {
-    return "<p>O que é uma face?</p>";
+    return "<p>Face é o lado de um poliedro. São as partes em azul no objeto abaixo.</p>";
   }
 };
 
-const main = () => {
+const propriedadeObjeto = (propriedade) => {
+  if (propriedade === "aresta") {
+    return "./assets/models/cubo-arestas.glb";
+  } else if (propriedade === "vertice") {
+    return "./assets/models/cubo-vertice.glb";
+  } else if (propriedade === "face") {
+    return "./assets/models/cubo-faces.glb";
+  }
+};
+
+const iniciar = () => {
   const propriedadeInput = document.getElementById("propriedade-input");
   const poliedroInput = document.getElementById("poliedro-input");
 
@@ -30,31 +40,30 @@ const main = () => {
   }
 
   menu.style.display = "none";
-  console.log(propriedadeInput.value);
+  containerRa.style.display = "block";
 
   containerRa.innerHTML = `
     <button id="botao-voltar">Voltar</button>
     <div id="container-info">
-      <p>${propriedade(propriedadeInput.value)}</p>
+      <p>${propriedadeTexto(propriedadeInput.value)}</p>
     </div>
     <a-scene embedded arjs="trackingMethod: best; debugUIEnabled: false" vr-mode-ui="enabled: false;">
       <a-marker preset="hiro">
         <a-entity
-          position="1 0 0"
+          position="1 0 -0.5"
           scale="0.10 0.10 0.10"
-          gltf-model="./assets/models/cubo-arestas.glb"
+          gltf-model="${propriedadeObjeto(propriedadeInput.value)}"
         ></a-entity>
       </a-marker>
       <a-entity camera></a-entity>
     </a-scene>
   `;
 
-  // document
-  //   .getElementById("botao-voltar")
-  //   .addEventListener("click", botaoVoltar);
+  document
+    .getElementById("botao-voltar")
+    .addEventListener("click", botaoVoltar);
 };
 
 botaoComecarRa.addEventListener("click", () => {
-  console.log("hello");
-  main();
+  iniciar();
 });
