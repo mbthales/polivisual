@@ -19,6 +19,7 @@ body,
   -moz-font-smoothing: antialiased !important;
   text-rendering: optimizelegibility !important;
   font-size: 20px;
+  line-height: 1.5;
 }
 
 #menu {
@@ -29,7 +30,7 @@ body,
   flex-direction: column;
 }
 
-.titulo {
+#titulo {
   font-size: 4rem;
   font-weight: 600;
   text-align: center;
@@ -75,27 +76,66 @@ body,
 #container-ra {
   width: 100%;
   height: 100%;
-  position: relative;
   display: none;
 }
 
 #botao-voltar {
   position: absolute;
   top: 5%;
-  left: 35%;
+  left: 10%;
   background-color: var(--secundary-color);
   font-family: var(--secundary-font);
   font-size: 0.7rem;
   padding: 5px 15px;
   z-index: 1;
   border: 0;
+  border-radius: 5px;
 }
 
 #container-info {
   color: var(--secundary-color);
   position: absolute;
-  left: 35%;
+  left: 10%;
   top: 13%;
-  max-width: 30%;
+  max-width: 80%;
   font-family: var(--secundary-font);
+}
+
+#container-titulo {
+  position: relative;
+}
+
+#tooltip {
+  color: var(--secundary-color);
+  fill: currentColor;
+  display: inline-block;
+  position: absolute;
+  top: 70%;
+  right: 2%;
+}
+
+#tooltip-texto {
+  width: 250px;
+  background-color: var(--primary-color);
+  color: var(--secundary-color);
+  text-align: left;
+  border-radius: 6px;
+  padding: 30px;
+  position: absolute;
+  font-size: 0.8rem;
+  z-index: 1;
+  display: none;
+  right: -20%;
+  border-radius: 5px;
+  box-shadow: 0 0 70px rgba(0, 0, 0, 1);
+  font-family: var(--secundary-font);
+}
+
+#tooltip-texto > a {
+  color: var(--secundary-color);
+}
+
+#realce-propriedade-texto {
+  font-size: 1.2rem;
+  font-weight: 600;
 }
