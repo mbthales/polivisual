@@ -139,3 +139,10 @@ body,
   font-size: 1.2rem;
   font-weight: 600;
 }
+
+#aviso-celular {
+  font-size: 1.2rem;
+  color: red;
+  display: none;
+  font-family: var(--secundary-font);
+}

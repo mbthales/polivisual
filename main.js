@@ -8,6 +8,7 @@ const propriedadeInput = document.getElementById("propriedade-input");
 const poliedroInput = document.getElementById("poliedro-input");
 const tooltip = document.getElementById("tooltip");
 const tooltipText = document.getElementById("tooltip-texto");
+const avisoCelular = document.getElementById("aviso-celular");
 
 const botaoVoltar = () => {
   menu.style.display = "flex";
@@ -26,15 +27,15 @@ const propriedadeTexto = (propriedade) => {
 
 const propriedadeObjeto = (propriedade, poliedro) => {
   const objetos3d = {
-    "aresta-cubo": "./assets/models/arestas/aresta-cubo.glb",
-    "vertice-cubo": "./assets/models/vertices/vertice-cubo.glb",
-    "face-cubo": "./assets/models/faces/face-cubo.glb",
-    "aresta-tetraedro": "./assets/models/arestas/aresta-tetraedro.glb",
-    "vertice-tetraedro": "./assets/models/vertices/vertice-tetraedro.glb",
-    "face-tetraedro": "./assets/models/faces/face-tetraedro.glb",
-    "aresta-tronco": "./assets/models/arestas/aresta-tronco.glb",
-    "vertice-tronco": "./assets/models/vertices/vertice-tronco.glb",
-    "face-tronco": "./assets/models/faces/face-tronco.glb",
+    "aresta-cubo": "./assets/models/arestas/cubo.glb",
+    "vertice-cubo": "./assets/models/vertices/cubo.glb",
+    "face-cubo": "./assets/models/faces/cubo.glb",
+    "aresta-tetraedro": "./assets/models/arestas/tetraedro.glb",
+    "vertice-tetraedro": "./assets/models/vertices/tetraedro.glb",
+    "face-tetraedro": "./assets/models/faces/tetraedro.glb",
+    "aresta-tronco": "./assets/models/arestas/tronco.glb",
+    "vertice-tronco": "./assets/models/vertices/tronco.glb",
+    "face-tronco": "./assets/models/faces/tronco.glb",
   };
 
   return objetos3d[`${propriedade}-${poliedro}`];
@@ -57,7 +58,7 @@ const iniciar = () => {
     <a-scene embedded arjs="trackingMethod: best; debugUIEnabled: false" vr-mode-ui="enabled: false;">
       <a-marker preset="hiro">
         <a-entity
-          position="0.10 0 -0.8"
+          position="0.10 0 0"
           scale="0.50 0.50 0.50"
           gltf-model="${propriedadeObjeto(
             propriedadeInput.value,
@@ -83,5 +84,16 @@ tooltip.addEventListener("click", () => {
     tooltipText.style.display = "block";
   } else {
     tooltipText.style.display = "none";
+  }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+  if (!isMobile) {
+    avisoCelular.style.display = "block";
+    botaoComecarRa.disabled = true;
+    botaoComecarRa.style.cursor = "not-allowed";
+    botaoComecarRa.style.backgroundColor = "gray";
   }
 });
