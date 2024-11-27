@@ -27,15 +27,15 @@ const propriedadeTexto = (propriedade) => {
 
 const propriedadeObjeto = (propriedade, poliedro) => {
   const objetos3d = {
-    "aresta-cubo": "./assets/models/arestas/cubo.glb",
-    "vertice-cubo": "./assets/models/vertices/cubo.glb",
-    "face-cubo": "./assets/models/faces/cubo.glb",
-    "aresta-tetraedro": "./assets/models/arestas/tetraedro.glb",
-    "vertice-tetraedro": "./assets/models/vertices/tetraedro.glb",
-    "face-tetraedro": "./assets/models/faces/tetraedro.glb",
-    "aresta-tronco": "./assets/models/arestas/tronco.glb",
-    "vertice-tronco": "./assets/models/vertices/tronco.glb",
-    "face-tronco": "./assets/models/faces/tronco.glb",
+    "aresta-cubo": "./assets/models/cubo-aresta.glb",
+    "vertice-cubo": "./assets/models/cubo-vertice.glb",
+    "face-cubo": "./assets/models/cubo-face.glb",
+    "aresta-tetraedro": "./assets/models/tetraedro-aresta.glb",
+    "vertice-tetraedro": "./assets/models/tetraedro-vertice.glb",
+    "face-tetraedro": "./assets/models/tetraedro-face.glb",
+    "aresta-tronco": "./assets/models/tronco-aresta.glb",
+    "vertice-tronco": "./assets/models/tronco-vertice.glb",
+    "face-tronco": "./assets/models/tronco-face.glb",
   };
 
   return objetos3d[`${propriedade}-${poliedro}`];
@@ -59,7 +59,7 @@ const iniciar = () => {
       <a-marker preset="hiro">
         <a-entity
           position="0.10 0 0"
-          scale="0.50 0.50 0.50"
+          scale="0.80 0.80 0.80"
           gltf-model="${propriedadeObjeto(
             propriedadeInput.value,
             poliedroInput.value
