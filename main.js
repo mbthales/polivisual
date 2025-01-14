@@ -11,7 +11,10 @@ const tooltipText = document.getElementById("tooltip-texto");
 const avisoCelular = document.getElementById("aviso-celular");
 
 const botaoVoltar = () => {
+  document.getElementById("arjs-video").remove();
+  
   menu.style.display = "flex";
+  containerRa.innerHTML = "";
   containerRa.style.display = "none";
 };
 
@@ -49,6 +52,11 @@ const iniciar = () => {
 
   menu.style.display = "none";
   containerRa.style.display = "block";
+  
+  console.log("TESTE", propriedadeObjeto(
+    propriedadeInput.value,
+    poliedroInput.value
+  ))          
 
   containerRa.innerHTML = `
     <button id="botao-voltar">Voltar</button>
